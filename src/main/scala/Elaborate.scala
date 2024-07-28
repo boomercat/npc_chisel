@@ -1,3 +1,4 @@
+import riscv32.Top
 object Elaborate extends App {
   val firtoolOptions = Array("--lowering-options=" + List(
     // make yosys happy
@@ -6,5 +7,5 @@ object Elaborate extends App {
     "disallowPackedArrays",
     "locationInfoStyle=wrapInAtSquareBracket"
   ).reduce(_ + "," + _))
-  circt.stage.ChiselStage.emitSystemVerilogFile(new IFU(), args, firtoolOptions)
+  circt.stage.ChiselStage.emitSystemVerilogFile(new Top(), args, firtoolOptions)
 }
