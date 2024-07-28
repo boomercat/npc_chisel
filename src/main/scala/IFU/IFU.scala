@@ -1,11 +1,17 @@
+package riscv32
+
 import chisel3._
 import chisel3.util._
 
+import config.Configs._
+
+
+class MeminstIO extends  Bundle{
+  val pc          = Input(UInt(ADDR_WIDTH))
+  val instruction = Output(UInt(ADDR_WIDTH))
+}
 class IFU extends Module {
-  val io = IO(new Bundle {
-    val pc = Input(UInt(32.W))
-    val instruction = Output(UInt(32.W))
-  })
+  val io = IO(new MeminstIO())
 
   // 实例化BlackBox模块
   val pmem = Module(new PmemBlackBox)

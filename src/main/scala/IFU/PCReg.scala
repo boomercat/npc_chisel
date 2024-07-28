@@ -7,6 +7,7 @@ class PCRegIO extends Bundle{
     val resultBranch = Input(Bool())
     val pcJump       = Input(Bool())
     val resultpc     = Input(UInt(32.W))
+    val pc           = Output(UInt(32.W))
 }
 
 class PCReg extends Module {
